@@ -1,0 +1,119 @@
+@keyframes mam-move-mask-up {
+  0% {
+    top: 100%;
+    bottom: 0%;
+  }
+
+  50% {
+    top: 0;
+    bottom: 0;
+  }
+
+  100% {
+    top: 0%;
+    bottom: 100%;
+  }
+
+}
+
+@keyframes mam-move-mask-down {
+  0% {
+    bottom: 100%;
+    top: 0%;
+  }
+
+  25% {
+    bottom: 0%;
+    top: 0%;
+  }
+
+  100% {
+    bottom: 0%;
+    top: 0%;
+  }
+}
+
+.main-menu {
+  @include positionElement(calc(50% - #{ $lineIndent}), 100%, $lineIndent, 100%, left, top, 2, flex);
+  background: $blackColor;
+  transition: ease-out 1s;
+
+  transition-delay: 0.0s;
+
+
+
+  &.active .main-menu-mask {
+    animation: mam-move-mask-up 1s linear forwards;
+  }
+
+  .main-menu-mask {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 100%;
+    bottom: 0;
+
+    background: $greenColor;
+
+    animation: mam-move-mask-down 2s linear forwards;
+  }
+
+  .mm-line {
+
+    position: absolute;
+    width: 1px;
+    height: calc(50% - 240px);
+    left: 60px;
+
+    background: $whiteColor;
+
+    opacity: 0.3;
+  }
+
+  $mmIndentVertical: 30px;
+
+  .mm-line-1 {
+    top: $mmIndentVertical;
+  }
+
+  .mm-line-2 {
+    bottom: $mmIndentVertical;
+  }
+
+  nav {
+    margin: auto 60px;
+  }
+
+  li {
+    width: 0px;
+    margin: 15px 0;
+    position: relative;
+    overflow: hidden;
+    transition: ease-out 0s;
+    transition-delay: 0;
+    transform: translateX(30px);
+    opacity: 0;
+  }
+
+  a {
+    width: 80px;
+    font-size: $middleSize;
+
+    &:hover {
+      color: $greenColor;
+    }
+  }
+
+  &.active {
+    top: 0;
+    transition-delay: 0.25s;
+
+    li {
+      transform: translateX(0px);
+      transition: ease-out 0.4s;
+      transition-delay: 0.75s;
+      opacity: 1;
+      width: 80px;
+    }
+  }
+}

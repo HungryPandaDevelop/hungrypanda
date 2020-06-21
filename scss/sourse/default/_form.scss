@@ -1,0 +1,147 @@
+input,
+textarea,
+.custom-select {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid $blackColor;
+  padding: 10px 0px;
+  font-size: inherit;
+  font-family: inherit;
+  resize: none;
+
+  &:focus {
+    outline: 0;
+    border-color: $orangeColor;
+  }
+
+}
+
+input[type="checkbox"] {
+  border: 0;
+  width: auto;
+}
+
+textarea {
+  height: 40px;
+}
+
+input[type="file"] {
+  border: 0;
+}
+
+
+
+/* -----custom-select-----*/
+
+.custom-select {
+  cursor: pointer;
+  position: relative;
+
+  &.active {
+    z-index: 3;
+    border-radius: 5px 5px 0 0;
+    border-color: $blackColor;
+  }
+
+  span {
+    position: relative;
+    z-index: 2;
+    color: inherit;
+  }
+
+  i {
+    @include bgImageEl("../images/arr-mini-down-black.png");
+    @include positionElement(10px, 10px, 8px, 12px, right, top, 2);
+  }
+
+  &.active i {
+    transform: rotate(90deg);
+  }
+
+  ul {
+
+    @include positionElement(100%, auto, -2px, 100%);
+
+    padding: 0;
+    margin: 0;
+
+    opacity: 0;
+    visibility: hidden;
+
+    background: $whiteColor;
+    overflow: hidden;
+
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+    border: solid 2px $whiteColor;
+    border-top: 0px;
+
+  }
+
+  li {
+    cursor: pointer;
+    list-style: none;
+    padding: 4px 0px;
+
+    &:hover {
+      background: $grayColorLite;
+    }
+  }
+
+  &.active ul {
+    visibility: visible;
+    opacity: 1;
+    border-color: $whiteColor;
+  }
+}
+
+/*-----custom-select-----*/
+
+/* -----style checkbox-----*/
+.checkbox {
+  position: relative;
+  font-size: 0;
+  padding: 0 0 8px;
+  display: inline-block;
+
+  span {
+    display: inline-block;
+    margin-top: -2px;
+  }
+
+  input {
+
+    appearance: none;
+    border: 1px solid $blackColor;
+    border-radius: 100%;
+    outline: none;
+    cursor: pointer;
+
+    padding: 0;
+    margin: 0;
+
+    @include positionElement(15px, 15px);
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    font-size: $standartSize;
+    color: $blackColor;
+    padding-left: 23px;
+    width: calc(100% - 30px);
+  }
+
+  input:checked+span::before,
+  input:checked+label::before {
+    content: "";
+    border-radius: 100%;
+    @include positionElement(7px, 7px, 4px, 4px);
+    background: $blackColor;
+  }
+}
+
+
+
+
+/* -----style checkbox-----*/

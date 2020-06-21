@@ -1,0 +1,8 @@
+footer {
+  @include positionElement(100%, auto, -4px, 15px, left, bottom);
+  text-align: center;
+}
+
+.copyright {
+  opacity: 0.5;
+}

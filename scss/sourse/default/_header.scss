@@ -1,0 +1,183 @@
+header {
+
+  @include positionElement(calc(100% - #{$lineIndent*2}), auto, $lineIndent, 0, left, top, 1, flex);
+  justify-content: space-between;
+}
+
+.logo-container {
+  border-left: 6px solid $whiteColor;
+  height: 60px;
+
+  padding-left: 10px;
+
+}
+
+.logo-container,
+.feedback-container {
+  padding-top: 25px;
+  padding-right: 15px;
+  font-size: $middleSize;
+}
+
+
+
+.feedback-container {
+  position: relative;
+
+  span {
+    font-family: "medium";
+  }
+
+}
+
+nav {
+
+  ul,
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  li {
+    a {}
+  }
+}
+
+.hamburger {
+  @include positionElement(20px, 40px, #{$lineIndent/2.5}, 50%, left, top, 2);
+  cursor: pointer;
+  transition: ease-out 0.5s;
+
+  .h-line-box {
+    @include positionElement(100%, 100%);
+    overflow: hidden;
+  }
+
+  .h-line {
+    @include positionElement(2px, 40%, 0, 0, left, bottom);
+
+    background: $whiteColor;
+    transition: ease-out 0.5s;
+  }
+
+  .h-line-1 {
+    margin-left: 4px;
+  }
+
+  .h-line-2 {
+    left: 100%;
+    height: 100%;
+    transition-delay: 0.25s;
+    margin-left: -4px;
+  }
+
+  .h-line-3 {
+    bottom: -50px;
+    margin-left: 4px;
+  }
+
+  .h-line-4 {
+    left: 100%;
+    height: 100%;
+
+    bottom: -50px;
+    transition-delay: 0.0s;
+    margin-left: -4px;
+  }
+
+  .h-line-5 {
+    transform: translateX(-20px) translateY(20px) rotate(45deg);
+  }
+
+  .h-line-6 {
+    transform: translateX(20px) translateY(20px) rotate(-45deg);
+  }
+
+
+  .text {
+    transform: translateY(-50px) rotate(-90deg);
+  }
+
+  &:hover {
+    color: $greenColor;
+
+    .h-line {
+      background: $greenColor;
+    }
+
+    .h-line-1 {
+      height: 100%;
+      bottom: 100%;
+      transition-delay: 0.25s;
+    }
+
+    .h-line-2 {
+      bottom: 100%;
+      transition-delay: 0.0s;
+    }
+
+    .h-line-3 {
+      height: 60%;
+      bottom: 0;
+      transition-delay: 0.25s;
+    }
+
+    .h-line-4 {
+      bottom: 0;
+      transition-delay: 0.25s;
+    }
+
+
+  }
+
+  &.active {
+    color: $greenColor;
+
+    .h-line-1,
+    .h-line-2,
+    .h-line-3,
+    .h-line-4 {
+      bottom: 100%;
+    }
+
+    .h-line-5 {
+      transform: translateX(10px) translateY(-10px) rotate(45deg);
+    }
+
+    .h-line-6 {
+      transform: translateX(10px) translateY(-10px) rotate(-45deg);
+
+    }
+
+    .h-line-5,
+    .h-line-6 {
+      transition-delay: 0.5s;
+      background: $greenColor;
+    }
+  }
+}
+
+
+
+.version-control {
+  @include positionElement($lineIndent, auto, 0, 15px, left, bottom, 1);
+  text-align: center;
+  font-family: "bold";
+  text-transform: uppercase;
+
+  a,
+  span {
+    padding: 0 5px;
+    margin: 0 5px;
+    border: 0;
+  }
+
+  span {
+    color: $greenColor;
+  }
+
+  a:hover {
+    color: $greenColor;
+  }
+}
